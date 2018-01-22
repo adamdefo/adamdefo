@@ -1,0 +1,80 @@
+.catalog
+  & .title
+    color: #242424
+    font-family: $ff2
+    font-size: 54px
+    font-weight: normal
+    margin-top: 0
+    margin-bottom: 10px
+  & .subtitle
+    color: $c_gray
+    font-family: $ff
+    font-size: 14px
+    font-weight: 300
+  &__header
+    position: relative
+    margin-bottom: 45px
+    padding: 0 20px
+  &__switcher
+    position: absolute
+    top: 20px
+    right: 20px
+  &__badge
+    position: absolute
+    top: 26px
+    left: 30px
+    & .badge
+      background-color: #8f75be
+      border-radius: 4px
+      color: #ffffff
+      font-size: 8px
+      letter-spacing: .1em
+      padding: 5px 8px
+      text-transform: uppercase
+  &__item
+    position: relative
+    background-color: #ffffff
+    border-radius: 5px
+    color: $c_gray
+    padding: 56px 30px 38px
+    -webkit-transition: all .5s
+    transition: all .5s
+    & .ttl
+      color: #292929
+      margin-bottom: 5px
+      -webkit-transition: all .25s
+      transition: all .25s
+    &:hover
+      background-color: #F9CBCE
+      color: #212121
+      & .ttl
+        //color: #ffffff
+    & .content
+      font-size: 14px
+      font-weight: 300
+
+.switcher
+  &__item
+    border: 2px solid transparent
+    border-radius: 14px
+    color: $c_gray
+    cursor: pointer
+    display: inline-block
+    vertical-align: middle
+    font-size: 11px
+    font-weight: 500
+    letter-spacing: .1em
+    padding: 7px 10px 4px
+    text-transform: uppercase
+    -webkit-transition: all .25s
+    transition: all .25s
+    &:hover
+      color: #000000
+    &--active
+      border-color: #F9CBCE
+      color: #000000
+      cursor: default
+  &__content
+    display: none
+    &--active
+      display: block

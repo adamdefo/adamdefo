@@ -1,0 +1,135 @@
+.layout
+	position: relative
+	width: 100%
+
+.wrapper
+	position: relative
+	margin: 0 auto
+	padding: 0 20px
+	max-width: 1200px
+
+.container
+	position: relative
+	padding: 0 15px
+	margin: 0 auto
+	max-width: 1200px
+
+.main
+	position: relative
+	width: 100%
+
+.section
+	position: relative
+	width: 100%
+	&_slider
+		background-color: #292a33
+		height: 100vh
+		max-height: 800px
+
+.section-promo
+	padding: 0
+	background: url('../img/bg-cover.jpg') center no-repeat fixed
+	background-size: cover
+	&:before
+		content: ''
+		position: absolute
+		background-color: rgba(0,0,0,.25)
+		width: 100%
+		height: 100%
+		z-index: 1
+	& .quotes
+		color: #ffffff
+
+.section-services
+	background-color: rgb(247, 246, 246)
+	padding: 70px 0
+
+.section_catalog
+	padding: 40px 20px
+
+.section-fixed
+	display: table
+	min-height: 100vh
+
+.section-black
+	background-color: #232323
+
+.td
+	position: relative
+	display: table-cell
+	vertical-align: middle
+	z-index: 10
+
+
+.card
+	display: inline-block
+	background: url('../img/card.png') 0 0 no-repeat scroll
+	width: 469px
+	height: 221px
+	padding: 20px
+
+.product
+	position: relative
+	background-color: #ffffff
+	border-radius: 5px
+	height: 240px
+	&_empty
+		border: 1px dashed #d8d8d8
+
+.phone a
+	font-size: 1.5em
+	color: #333333
+
+.banner
+	border: 2px solid #ffd800
+	height: 100px
+	margin: 50px auto
+
+
+
+
+
+
+
+
+
+.social
+	text-align: center
+	&__item
+		display: inline-block
+		vertical-align: middle
+		background-color: #232323 
+		border-radius: 50%
+		margin: 0 10px
+		height: 34px
+		width: 34px
+		& img
+			max-width: 20px
+
+
+
+
+.chain__list
+	margin: 0
+	padding: 0
+.chain__item
+	display: inline-block
+	vertical-align: middle
+	color: $c1
+	font-size: 10px
+	font-weight: 300
+	text-transform: uppercase
+	&:last-child
+		margin-right: 0
+.chain__item + .chain__item:before
+	content: '/'
+	display: inline-block
+	vertical-align: middle
+	margin-right: 4px
+.chain__link
+	display: inline-block
+	vertical-align: middle
+	border: none
+	color: $c1
+	.chain__link:hover
+		color: $red
