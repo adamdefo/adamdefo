@@ -85,29 +85,75 @@
 	height: 100px
 	margin: 50px auto
 
++keyframes(fadeUp)
+	0%
+		opacity: 0
+		transform: translate3d(0, 30px, 0)
+	100%
+		transform: translate3d(0, 0, 0)
+
+.terminal
+	background-color: #232323
+	border-radius: 4px
+	box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1)
+	color: #ffffff
+	margin: 3.5rem auto
+	padding: 0 2rem
+	min-height: 285px
+	width: 60%
+	animation: fadeUp 2s
+	& pre
+		white-space: pre-line
+		padding-top: 2rem
 
 
-
-
-
-
-
-
+// иконки соц. сетей
 .social
 	text-align: center
 	&__item
 		display: inline-block
 		vertical-align: middle
-		background-color: #232323 
-		border-radius: 50%
 		margin: 0 10px
 		height: 34px
 		width: 34px
-		& img
-			max-width: 20px
-
-
-
+	&__link
+		display: block
+		border-radius: 50%
+		outline: none
+		position: relative
+		height: 100%
+		width: 100%
+		& > span
+			opacity: 0
+		&:before
+			content: ''
+			position: absolute
+			background-position: center center
+			background-repeat: no-repeat
+			height: 16px
+			width: 16px
+			top: 50%
+			left: 50%
+			margin-top: -8px
+			margin-left: -8px
+		&_vk
+			background-color: #5D80A3
+			&:before
+				background-image: url('../img/vk.svg')
+		&_telegram
+			background-color: #3BABDE
+			&:before
+				background-image: url('../img/telegram.svg')
+		&_twitter
+			background-color: #2BAEE8
+			&:before
+				background-image: url('../img/twitter.svg')
+		&_instagram
+			background-color: #D7317B
+			&:before
+				background-image: url('../img/instagram.svg')
+		&:hover
+			background-color: #232323
 
 .chain__list
 	margin: 0

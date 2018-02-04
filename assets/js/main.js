@@ -23,3 +23,26 @@
 
 
 // });
+
+
+
+// let vm = new Vue({
+// 	el: '#app',
+// 	data: function() {
+// 		return {
+// 			greet: 'Hello'
+// 		}
+// 	}
+// });
+
+var txt = `scribbler
+					[Entry mode; press Ctrl+D to save and quit; press Ctrl+C to quit without saving]
+
+					###todo for new year dinner party
+
+					- milk
+					- butter
+					- green onion
+					- lots and lots of kiwis 🥝`;
+
+var tw = new TypeWriter(document.getElementById('typewriter'), { outTxt: txt });

@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    jade = require('gulp-jade'), 
+    jade = require('gulp-jade'),
     sass = require('gulp-sass'),
     myth = require('gulp-myth'),
     csso = require('gulp-csso'),
@@ -29,7 +29,7 @@ gulp.task('sass', function() {
 
 gulp.task('js', function() {
 
-    gulp.src(['./assets/js/**/*.js', '!./assets/js/vendor/**/*.js'])
+    gulp.src(['!./assets/js/vendor/vue/*.js', './assets/js/vendor/*.js', './assets/js/*.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./dev/js'))
         .pipe(browserSync.reload({stream:true}));
