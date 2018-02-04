@@ -5,8 +5,10 @@ html
     #app.layout
       include inc/header
       main.main
-        .terminal
+        #typewriter.terminal
           pre
-            code#typewriter adamdefo ~ $
+            code.terminal__code
+              span.terminal__master adamdefo
+              span.terminal__regexp ~ $
         .container
       include inc/footer

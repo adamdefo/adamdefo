@@ -96,15 +96,25 @@
 	background-color: #232323
 	border-radius: 4px
 	box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1)
-	color: #ffffff
 	margin: 3.5rem auto
 	padding: 0 2rem
+	visibility: hidden
 	min-height: 285px
 	width: 60%
-	animation: fadeUp 2s
+	&._show
+		visibility: visible
+		animation: fadeUp 1.5s
 	& pre
 		white-space: pre-line
-		padding-top: 2rem
+		padding-top: 1.5rem
+	& code
+		display: block
+		color: #e6e1dc
+		padding: 1em
+	&__master
+		color: #cda869
+	&__regexp
+		color: #a5c261
 
 
 // иконки соц. сетей

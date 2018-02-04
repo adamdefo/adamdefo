@@ -1,32 +1,31 @@
 .header
 	position: relative
 	width: 100%
-	&__inner
-		padding: 35px 0
+	&__container
+		padding: 7.5rem 0 3.5rem
 	&__logo
 		text-align: center
-		& a
-			color: #454553
-			&:hover
-				color: $c1
+	&__link
+		color: #432E30
 		& .logo
 			display: inline-block
-			background-color: #454553
-			border-radius: 50%
+			// background-color: #FFE4E4
+			border: 4px solid #FFE4E4
+			// border-radius: 50%
 			margin-bottom: 20px
 			padding: 10px
 			width: 73px
 			height: 73px
 			&:hover
-				background-color: $c1
-		& .slogan
-			display: block
-			font-family: $ff
-			font-size: 1.35rem
-			padding: 5px 0
-		& .caption
-			display: block
-			font-family: $ff2
-			font-size: 3rem
-			font-weight: bold
-			line-height: 1
+				border-color: #232323
+	&__slogan
+		display: block
+		font-family: $ff
+		font-size: 1.35rem
+		padding: 5px 0
+	&__caption
+		display: block
+		font-family: $ff2
+		font-size: 3rem
+		font-weight: bold
+		line-height: 1.5

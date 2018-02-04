@@ -35,14 +35,14 @@
 // 	}
 // });
 
-var txt = `scribbler
-					[Entry mode; press Ctrl+D to save and quit; press Ctrl+C to quit without saving]
+var txt = `Привет!
+					[Тестовый режим; нажми Ctrl+D to save and quit; нажми Ctrl+C to quit without saving]
 
-					###todo for new year dinner party
+					###команды
 
-					- milk
-					- butter
-					- green onion
-					- lots and lots of kiwis 🥝`;
+					- run
+					- refresh
+					- destroy
+					- optimize 🥝`;
 
 var tw = new TypeWriter(document.getElementById('typewriter'), { outTxt: txt });
