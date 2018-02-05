@@ -117,6 +117,36 @@
 		color: #a5c261
 
 
+.filmoteka
+	&__container
+		position: relative
+		margin: 0 auto
+		max-width: 1440px
+		width: 100%
+		&:before, &:after
+			clear: both
+			content: ''
+			display: block
+			height: 0
+	&__film
+		display: inline-block
+		padding: 1.5rem
+		width: 24rem
+		&-cover
+			position: relative
+			background-size: cover
+			background-position: center center
+			background-repeat: no-repeat
+			border-radius: 2px
+			margin-bottom: 1.35rem
+			height: 30rem
+			width: 100%
+		&-title
+			color: #232323
+			font-family: Arial
+			font-size: 1.5rem
+			font-weight: 600
+
 // иконки соц. сетей
 .social
 	text-align: center

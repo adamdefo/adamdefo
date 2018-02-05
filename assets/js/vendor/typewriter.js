@@ -16,11 +16,13 @@
 				}
 			}
 			return a;
-		}
+		};
 
-		var TypeWriter = function (el, params) {
-			this.el = el;
-			this.$codeField = this.el.querySelector('.terminal__code');
+		var TypeWriter = function (selector, params) {
+			this.el = document.querySelector(selector);
+			if (this.el) {
+				this.$codeField = this.el.querySelector('.terminal__code');
+			}
 
 			this._params = extend({}, this._params);
 			extend(this._params, params);
