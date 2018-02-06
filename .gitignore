@@ -3,5 +3,6 @@ scribbler/
 OutdoorsTemplate-master/
 node_modules/
 dev/
+.idea/
 npm-debug.log*
 assets/libs/
