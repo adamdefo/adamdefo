@@ -21,44 +21,80 @@
 .section
 	position: relative
 	width: 100%
+	&_page
+		margin: 4.5rem 0 1.5rem
+	&__title
+		color: #121212
+		font-family: $ff
+		font-size: 6.5rem
+		font-weight: bold
+		text-align: center
+		&_blog
+			color: #212121
+			font-family: $ff2
+			max-width: 78rem
+			width: 100%
+			margin: 0 auto
+			padding: 2.5rem 1.5rem
+		& h1
+			font-size: 5rem
+			margin: 0
+
 	&_slider
 		background-color: #292a33
 		height: 100vh
 		max-height: 800px
 
-.section-promo
-	padding: 0
-	background: url('../img/bg-cover.jpg') center no-repeat fixed
-	background-size: cover
-	&:before
-		content: ''
-		position: absolute
-		background-color: rgba(0,0,0,.25)
-		width: 100%
-		height: 100%
-		z-index: 1
-	& .quotes
-		color: #ffffff
-
-.section-services
-	background-color: rgb(247, 246, 246)
-	padding: 70px 0
-
-.section_catalog
-	padding: 40px 20px
-
-.section-fixed
-	display: table
-	min-height: 100vh
-
-.section-black
-	background-color: #232323
-
-.td
-	position: relative
-	display: table-cell
-	vertical-align: middle
-	z-index: 10
+.blog
+	&__date
+		color: #9f9f9f
+		font-size: 1.35rem
+		&_center
+			text-align: center
+	&__info
+		color: #757575
+		font-size: 1.15rem
+		text-align: center
+		margin: 1rem 0 5.5rem
+		& span
+			display: inline-block
+			font-weight: 500
+			margin: 0 .75rem
+	&__author
+		letter-spacing: .15rem
+		text-transform: uppercase
+	&__content
+		color: #7a7f84
+		& .txt
+			max-width: 78rem
+			width: 100%
+			margin: 1.5rem auto
+			padding: 0 1.5rem
+			&:before, &:after
+				clear: both
+				content: ''
+				display: block
+				font-size: 0
+				line-height: 0
+				width: 100%
+		& .column
+			float: left
+			padding: 0 1.5rem
+			width: 50%
+		& img
+			margin: 0 auto
+		& blockquote
+			display: block
+			border-top: 2px solid #e9e9e9
+			border-bottom: 2px solid #e9e9e9
+			color: #212121
+			font-family: $ff2
+			font-size: 2.25rem
+			line-height: 1.5
+			margin: 4.5rem auto
+			padding: 3.5rem 6.5rem
+			text-align: center
+			width: 96rem
 
 
 .card
@@ -85,6 +121,8 @@
 	height: 100px
 	margin: 50px auto
 
+
+
 +keyframes(fadeUp)
 	0%
 		opacity: 0
@@ -92,6 +130,7 @@
 	100%
 		transform: translate3d(0, 0, 0)
 
+// терминал
 .terminal
 	background-color: #232323
 	border-radius: 4px
@@ -116,7 +155,7 @@
 	&__regexp
 		color: #a5c261
 
-
+// кинотека
 .filmoteka
 	&__container
 		position: relative
@@ -143,7 +182,7 @@
 			width: 100%
 		&-title
 			color: #232323
-			font-family: Arial
+			font-family: $ff
 			font-size: 1.5rem
 			font-weight: 600
 

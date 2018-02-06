@@ -5,10 +5,13 @@ html
     #app.layout
       include inc/header
       main.main
-        .filmoteka
-          .filmoteka__container
-            .filmoteka__film(v-for="listItem in list")
-              .filmoteka__film-cover(style="background-image: url(img/vcover.png)")
-              .filmoteka__film-title {{ listItem.name }}
+        section.section.section_note
+          .container
+            h1.ttl.ttl_h1.center Раздел в разработке . . .
+        //- .filmoteka
+        //-   .filmoteka__container
+        //-     .filmoteka__film(v-for="listItem in list")
+        //-       .filmoteka__film-cover(style="background-image: url(img/vcover.png)")
+        //-       .filmoteka__film-title {{ listItem.name }}
 
       include inc/footer
