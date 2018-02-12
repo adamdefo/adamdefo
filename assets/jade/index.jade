@@ -2,13 +2,28 @@ doctype html
 html
   include inc/head
   body
-    #app.layout
+    .layout
       include inc/header
       main.main
-        #typewriter.terminal
-          pre
-            code.terminal__code
-              span.terminal__master adamdefo
-              span.terminal__regexp ~ $
         .container
-      include inc/footer
+
+        .signup-form
+          form.form.form_sign
+            .form__title Sign Up
+            .form__elements
+              .form__item
+                input(type="text")#username.form__control
+                label(for="username").form__label Username
+              .form__item
+                input(type="text")#email.form__control
+                label(for="email").form__label Email
+              .form__item
+                input(type="password")#password.form__control
+                label(for="password").form__label Password
+              .form__item.form__item_btn
+                button(type="submit").form__btn
+                  span Registration
+            .form__footer
+              p By signing up, I agree to the <a href="#">Therme of Use</a>
+
+    include inc/footer
