@@ -4,11 +4,12 @@ $c3: #5a5a5a
 $c3: #333333
 $c4: #f6f6f6
 $c33: #454553
-$blue: #18548F
+$blue: #013bbb
 $blue_bg: rgba(13,118,255,.15)
 $color_v: #6C16DE
 $c_gray: #9fa3a7
-$red: rgb(255,136,123)
+// $red: rgb(255,136,123)
+$red: #D81532
 $ff_monserat: 'Montserrat', sans-serif
 $ff: 'Gotham Pro', Open Sans, Arial, sans-serif
 $ff2: 'Peterburg', Times, serif
@@ -21,6 +22,7 @@ $ff2: 'Peterburg', Times, serif
 
 html
 	font-size: 10px
+	height: 100%
 
 body
 	background: #F8F8FA
@@ -28,20 +30,23 @@ body
 	font: 400 15px/1.5 $ff
 	margin: 0
 	padding: 0
+	height: 100%
 
 a
 	cursor: pointer
 	text-decoration: none
 	border-bottom: 1px solid transparent
-	-webkit-transition: all .25s
-	-moz-transition: all .25s
-	transition: all .25s
+	-webkit-transition: all .15s
+	-moz-transition: all .15s
+	transition: all .15s
 
 a:link
-	color: #454553
+	border-bottom-color: rgba(1, 57, 187, .3)
+	color: $blue
 
 a:hover
-	color: $blue
+	border-bottom-color: rgba(216, 21, 50, .3)
+	color: $red
 
 img
 	max-width: 100%
