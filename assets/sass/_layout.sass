@@ -138,24 +138,45 @@
 	border-radius: 4px
 	box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.1)
 	margin: 3.5rem auto
-	padding: 0 2rem
+	padding: 3rem 2rem
 	visibility: hidden
-	min-height: 285px
+	min-height: 355px
+	max-height: 355px
+	overflow: hidden
 	width: 60%
 	&._show
 		visibility: visible
 		animation: fadeUp 1.5s
 	& pre
 		white-space: pre-line
-		padding-top: 1.5rem
+		margin: 0
+		padding: 0
 	& code
 		display: block
 		color: #e6e1dc
-		padding: 1em
+		padding: 0 1rem
 	&__master
 		color: #cda869
 	&__regexp
 		color: #a5c261
+	&__log
+		height: 100%
+		max-height: 265px
+		overflow-y: auto
+	&__form
+		margin-top: -1px
+		padding: 0 1rem
+	&__input
+		background-color: transparent
+		border: 0
+		color: #e6e1dc
+		font-family: monospace
+		font-size: 1.5rem
+		height: 1.5rem
+		margin: 0
+		padding: 0
+		outline: none
+		width: 100%
 
 // кинотека
 .filmoteka
@@ -238,27 +259,28 @@
 		&:hover
 			background-color: #232323
 
-.chain__list
-	margin: 0
-	padding: 0
-.chain__item
-	display: inline-block
-	vertical-align: middle
-	color: $c1
-	font-size: 10px
-	font-weight: 300
-	text-transform: uppercase
-	&:last-child
-		margin-right: 0
-.chain__item + .chain__item:before
-	content: '/'
-	display: inline-block
-	vertical-align: middle
-	margin-right: 4px
-.chain__link
-	display: inline-block
-	vertical-align: middle
-	border: none
-	color: $c1
-	.chain__link:hover
-		color: $red
+.chain
+	&__list
+		margin: 0
+		padding: 0
+	&__item
+		display: inline-block
+		vertical-align: middle
+		color: $c1
+		font-size: 10px
+		font-weight: 300
+		text-transform: uppercase
+		&:last-child
+			margin-right: 0
+	&__item + &__item:before
+		content: '/'
+		display: inline-block
+		vertical-align: middle
+		margin-right: 4px
+	&__link
+		display: inline-block
+		vertical-align: middle
+		border: none
+		color: $c1
+		&:hover
+			color: $red

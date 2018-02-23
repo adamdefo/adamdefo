@@ -31,43 +31,35 @@
  	data: function() {
  		return {
  			list: [
-                {
-                    id: 1,
-                    name: 'Name 1'
-                },
-                {
-                    id: 2,
-                    name: 'Name 2'
-                },
-                {
-                    id: 3,
-                    name: 'Name 3'
-                },
-                {
-                    id: 4,
-                    name: 'Name 4'
-                },
-                {
-                    id: 5,
-                    name: 'Name 5'
-                },
-                {
-                    id: 6,
-                    name: 'Name 6'
-                }
-            ]
+								{
+										id: 1,
+										name: 'Name 1'
+								},
+								{
+										id: 2,
+										name: 'Name 2'
+								},
+								{
+										id: 3,
+										name: 'Name 3'
+								},
+								{
+										id: 4,
+										name: 'Name 4'
+								},
+								{
+										id: 5,
+										name: 'Name 5'
+								},
+								{
+										id: 6,
+										name: 'Name 6'
+								}
+						]
  		}
  	}
  });
 
-var txt = `Привет!
-					[Тестовый режим; нажми Ctrl+D to save and quit; нажми Ctrl+C to quit without saving]
-
-					###команды
-
-					- run
-					- refresh
-					- destroy
-					- optimize ?`;
+var txt = 'Hello! \n[Test mode is activated.] \n\n###commands: \n- press Enter for restart;\n- press Esc for off';
 
 var tw = new TypeWriter('#typewriter', { outTxt: txt });

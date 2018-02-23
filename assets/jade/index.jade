@@ -6,9 +6,13 @@ html
       include inc/header
       main.main
         #typewriter.terminal
-          pre
-            code.terminal__code
-              span.terminal__master adamdefo
-              span.terminal__regexp ~ $
+          .terminal__log
+            pre
+              code.terminal__code
+                span.terminal__master adamdefo
+                span.terminal__regexp ~ $
+          .terminal__form
+            input.terminal__input(type="text")
+
         .container
     include inc/footer
