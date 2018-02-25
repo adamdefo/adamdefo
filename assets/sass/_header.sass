@@ -2,35 +2,21 @@
 	position: relative
 	width: 100%
 	&__container
+		display: table
 		padding: 3.5rem 3rem 1.5rem
+		width: 100%
 		&:before, &:after
 			clear: both
 			content: ''
 			display: block
 			height: 0
 	&__logo
-		display: inline-block
-		border: 0
-		color: #000000
-		font-family: $ff_monserat
-		font-size: 2.15rem
-		font-weight: bold
-		text-transform: lowercase
+		display: table-cell
+		vertical-align: middle
 		&:hover
 			color: $color_v
 	&__link
 		color: #432E30
-		& .logo
-			display: inline-block
-			// background-color: #FFE4E4
-			border: 4px solid #FFE4E4
-			// border-radius: 50%
-			margin-bottom: 20px
-			padding: 10px
-			width: 73px
-			height: 73px
-			&:hover
-				border-color: #232323
 	&__slogan
 		display: block
 		font-family: $ff
@@ -43,5 +29,16 @@
 		font-weight: bold
 		line-height: 1.5
 	&__nav
-		float: right
-		padding-top: .8rem
+		display: table-cell
+		vertical-align: middle
+		text-align: right
+		// float: right
+		// padding-top: .65rem
+
+.logo
+	border: 0
+	color: #000000
+	font-family: $ff_monserat
+	font-size: 2.15rem
+	font-weight: bold
+	text-transform: lowercase

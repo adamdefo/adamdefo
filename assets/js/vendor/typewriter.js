@@ -18,97 +18,137 @@
 			return a;
 		};
 
-		var TypeWriter = function (selector, params) {
+		var random = (min, max) => {
+			var rand = min - 0.5 + Math.random() * (max - min + 1)
+			rand = Math.round(rand);
+			return rand;
+		};
+
+		var Terminal = function (selector, params) {
 			this.el = document.querySelector(selector);
 			if (this.el) {
 				this.$log = this.el.querySelector('.terminal__log');
 				this.$codeField = this.el.querySelector('.terminal__code');
 			}
 
+			// поле ввода
 			this.$input = this.el.querySelector('.terminal__input');
+			// значение поля
 			this.inputValue = '';
 
 			this._params = extend({}, this._params);
 			extend(this._params, params);
 
 			this.timer;
+			this.timerInterval;
+			this.answerIndex = 0;
+			this.answerCounter = 0; // порядковый номер ответа из хранилища
 
 			this._init();
 		};
 
-		TypeWriter.prototype._params = {
-			speed: 60, // скорость вывода символов
-			timeout: 1800, // через какое время запустить терминал
-			inTxt: '',
-			outTxt: 'TypeWriter version 1.0.0' // выводимый текст
+		Terminal.prototype._params = {
+			context: '',
+			isRandom: true, // рендомный ответ из хранилища
+			speed: 30, // скорость вывода символов
+			timeout: 800 // через какое время запустить терминал
 		};
 
-		TypeWriter.prototype._in = function () {
-			// console.log(this._params.inTxt);
+		Terminal.prototype._store = {
+			answers: [
+				'Че тебе от меня надо?',
+				'Как тебя зовут?',
+				'Сколько лет?'
+			],
+			iDontKnow: 'Не знаю что спросить и как ответить :('
 		};
 
-		TypeWriter.prototype._out = function () {
-			var self = this, counter = 0;
-			this._reset();
-			this._show();
+		Terminal.prototype._input = function (context) {
+			this._params.context = context;
+		};
+
+		Terminal.prototype._output = function (context) {
+			var self = this;
+			var txt = context;
 			if (!this.timer) {
-				setTimeout( function () {
-					self.timer = setInterval(function() {
-						if (counter < self._params.outTxt.length) {
-							self.$codeField.innerHTML += self._params.outTxt.charAt(counter);
-							counter++;
-						} else {
-							clearInterval(self.timer);
-							self.focusInput();
-						}
-					}, self._params.speed);
-				}, self._params.timeout);
+				this.createTimer(txt);
 			}
 		};
 
-		TypeWriter.prototype._show = function () {
+		// создает таймер, который будет анимированно выводить текст
+		Terminal.prototype.createTimer = function (txt) {
+			var self = this, counter = 0;
+			this.timer = setTimeout( function () {
+				self.timerInterval = setInterval( function () {
+					if (counter < txt.length) {
+						self.$codeField.innerHTML += txt.charAt(counter);
+						counter++;
+					} else {
+						self.$log.scrollTop = self.$log.scrollHeight;
+						self.focusInput();
+						self.resetTimer();
+					}
+				}, self._params.speed);
+			}, self._params.timeout);
+		};
+
+		// сбрасываем таймер
+		Terminal.prototype.resetTimer = function () {
+			clearInterval(this.timerInterval);
+			this.timerInterval = undefined;
+			clearTimeout(this.timer);
+			this.timer = undefined;
+		};
+
+		// отображает терминал
+		Terminal.prototype._show = function () {
 			if (!classie.hasClass(this.el, '_show')) {
 				classie.add(this.el, '_show');
 			}
 		};
 
-		TypeWriter.prototype._hide = function () {
+		// скрывает терминал
+		Terminal.prototype._hide = function () {
 			if (classie.hasClass(this.el, '_show')) {
 				classie.remove(this.el, '_show');
 			}
 		};
 
-		// сбрасываем таймер и очищаем вывод
-		TypeWriter.prototype._reset = function () {
-			clearInterval(this.timer);
-			this.timer = undefined;
-			this.$codeField.innerHTML = '';
+		// переключатель показать/скрыть терминал
+		Terminal.prototype._toggle = () => {
+			classie.toggle(this.el, '_show');
 		};
 
-		TypeWriter.prototype.focusInput = function () {
-			if (!classie.has(this.$input, 'terminal__input_focused')) {
-				classie.add(this.$input, 'terminal__input_focused');
-			}
+		Terminal.prototype.focusInput = function () {
+			classie.add(this.$input, 'terminal__input_focused');
 			this.$input.focus();
 		};
 
-		TypeWriter.prototype.clearInput = function () {
+		Terminal.prototype.clearInput = function () {
 			this.$input.value = '';
 			this.inputValue = '';
 		};
 
+		// очищает содержимое лога
+		Terminal.prototype.clearLog = function () {
+			this.$codeField.innerHTML = '';
+		};
+
 		// сбрасывает терминал на дефолтное состояние
-		TypeWriter.prototype.resetTerminal = function () {
-			this._out();
+		Terminal.prototype.resetTerminal = function () {
+			this.resetTimer();
+			this.clearLog();
 			this.clearInput();
 		};
 
-		TypeWriter.prototype._init = function () {
-			this._out();
+		// инициализация терминала
+		Terminal.prototype._init = function () {
+			this._show();
+			this._output(this._params.context);
 			this._initEvents();
 		};
 
-		TypeWriter.prototype._initEvents = function () {
+		Terminal.prototype._initEvents = function () {
 			var self = this;
 
 			this.el.addEventListener('click', function (ev) {
@@ -117,24 +157,38 @@
 
 			this.$input.addEventListener('keydown', function (ev) {
 				var keyCode = ev.keyCode || ev.which;
-				if (keyCode === 13) { // press enter
+				if (keyCode === 13) { // реагирует на enter когда input в фокусе
 					self.inputValue = self.$input.value.trim();
 					if (self.inputValue) {
 						self.$codeField.innerHTML += '\n' + self.inputValue;
 						self.$log.scrollTop = self.$log.scrollHeight;
 						self.clearInput();
+
+						self.$codeField.innerHTML += '\n';
+						if (self._params.isRandom) {
+							self.answerIndex = random(0, self._store.answers.length);
+							self._output(self._store.answers[self.answerIndex]);
+						} else {
+							if (self.answerIndex >= (self._store.answers.length)) {
+								self._output(self._store.iDontKnow);
+							} else {
+								self._output(self._store.answers[self.answerIndex]);
+								self.answerIndex++;
+							}
+						}
 					}
 				}
 			});
 
 			document.addEventListener('keydown', function (ev) {
 				var keyCode = ev.keyCode || ev.which;
+				// console.log(keyCode)
 				if (keyCode === 27) { // press esc
 					self.resetTerminal();
 				}
 			});
 		};
 
-		window.TypeWriter = TypeWriter;
+		window.Terminal = Terminal;
 
 })(window);

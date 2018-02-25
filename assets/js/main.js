@@ -24,42 +24,6 @@
 
 // });
 
+var txt = 'Hello! \n[Test mode is activated.] \n\n###commands: \n- press Esc for restart;';
 
-
- let vm = new Vue({
- 	el: '#app',
- 	data: function() {
- 		return {
- 			list: [
-								{
-										id: 1,
-										name: 'Name 1'
-								},
-								{
-										id: 2,
-										name: 'Name 2'
-								},
-								{
-										id: 3,
-										name: 'Name 3'
-								},
-								{
-										id: 4,
-										name: 'Name 4'
-								},
-								{
-										id: 5,
-										name: 'Name 5'
-								},
-								{
-										id: 6,
-										name: 'Name 6'
-								}
-						]
- 		}
- 	}
- });
-
-var txt = 'Hello! \n[Test mode is activated.] \n\n###commands: \n- press Enter for restart;\n- press Esc for off';
-
-var tw = new TypeWriter('#typewriter', { outTxt: txt });
+var Adam = new Terminal('#adam', { context: txt, isRandom: false });
